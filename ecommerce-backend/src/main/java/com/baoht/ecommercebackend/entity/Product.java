@@ -1,7 +1,7 @@
 package com.baoht.ecommercebackend.entity;
 
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -22,8 +22,9 @@ public class Product {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id", nullable = false)
+    @JsonBackReference
     private ProductCategory category;
 
     @Column(name = "sku")
@@ -45,7 +46,10 @@ public class Product {
     private boolean active;
 
     @Column(name = "units_in_stock")
-    private int unitsStock;
+    private int unitsInStock;
+
+    @Column(name = "status")
+    private String status;
 
     @Column(name = "date_created")
     @CreationTimestamp

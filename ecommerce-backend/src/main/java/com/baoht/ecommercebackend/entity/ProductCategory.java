@@ -1,6 +1,6 @@
 package com.baoht.ecommercebackend.entity;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +22,7 @@ public class ProductCategory {
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+    @JsonManagedReference
     private Set<Product> products;
 
 }

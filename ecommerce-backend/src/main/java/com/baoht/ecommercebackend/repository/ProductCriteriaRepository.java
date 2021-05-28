@@ -75,6 +75,12 @@ public class ProductCriteriaRepository {
                             request.getStatus())
             );
         }
+//        if (Objects.nonNull(request.getCategoryId())) {
+//            predicates.add(
+//                    criteriaBuilder.like(productRoot.get("category").get("id"),
+//                            request.getCategoryId())
+//            );
+//        }
         return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
     }
 

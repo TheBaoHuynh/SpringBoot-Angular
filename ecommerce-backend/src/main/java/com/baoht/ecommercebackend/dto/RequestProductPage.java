@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class RequestProductPage {
 
+    private String categoryId;
     private String keyword;
     private String sortByColumn;
     private String sortBy;

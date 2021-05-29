@@ -1,6 +1,6 @@
 package com.baoht.ecommercebackend.repository;
 
-import com.baoht.ecommercebackend.dto.RequestProductPage;
+import com.baoht.ecommercebackend.dto.request.RequestProductPage;
 import com.baoht.ecommercebackend.entity.Product;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Repository;

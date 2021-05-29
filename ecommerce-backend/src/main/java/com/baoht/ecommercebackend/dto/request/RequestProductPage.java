@@ -1,4 +1,4 @@
-package com.baoht.ecommercebackend.dto;
+package com.baoht.ecommercebackend.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;

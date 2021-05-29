@@ -1,8 +1,8 @@
 package com.baoht.ecommercebackend.controller;
 
-import com.baoht.ecommercebackend.dto.RequestProductPage;
+import com.baoht.ecommercebackend.dto.request.RequestProductPage;
+import com.baoht.ecommercebackend.dto.response.ResponsePageDTO;
 import com.baoht.ecommercebackend.entity.Product;
-import com.baoht.ecommercebackend.repository.CustomProductRepository;
 import com.baoht.ecommercebackend.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     private final ProductService productService;
-    private final CustomProductRepository customProductRepository;
 
     @PostMapping
     public ResponseEntity<Page<Product>> getProducts(@RequestBody RequestProductPage request) {
@@ -27,8 +26,8 @@ public class ProductController {
     }
 
     @PostMapping("/categories")
-    public ResponseEntity<Page<Product>> getProductsByCategoryId(@RequestBody RequestProductPage request) {
-        return ResponseEntity.status(HttpStatus.OK).body(customProductRepository.getProductByCategoryId(request));
+    public ResponseEntity<ResponsePageDTO> getProductsByCategoryId(@RequestBody RequestProductPage request) {
+        return ResponseEntity.status(HttpStatus.OK).body(productService.getProductByCategoryId(request));
     }
 
 
